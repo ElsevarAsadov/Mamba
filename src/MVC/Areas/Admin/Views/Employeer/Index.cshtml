@@ -1,0 +1,44 @@
+﻿
+@model List<Employeer>
+@{
+    ViewData["Title"] = "Teams";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">POSITION</th>
+            <th scope="col">SOCIAL MEDIA ACCOUNTS</th>
+            <th scope="col">ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var emp in Model)
+        {
+            <tr>
+                <th>@emp.Id</th>
+                <td>@emp.Name</td>
+                <td>@emp.Position.Name</td>
+                <td>
+                    
+                    @{
+
+                     
+
+                    }
+                </td>
+                <td>
+                    <a asp-action="Update" asp-controller="Employeer" role="button">UPDATE</a>
+                    <button asp-action="Delete" asp-controller="Employeer" type="button">DELETE</button>
+                </td>
+            </tr>
+
+        }
+      
+
+    </tbody>
+</table>
+

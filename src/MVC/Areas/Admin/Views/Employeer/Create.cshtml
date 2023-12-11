@@ -1,0 +1,49 @@
+﻿@model CreateViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-controller="Employeer" asp-action="Create" method="POST">
+
+    <div class="mb-3">
+        <label asp-for="@Model.Employeer.Name" class="form-label"></label>
+        <input asp-for="@Model.Employeer.Name" class="form-control">
+        <span asp-validation-for="@Model.Employeer.Name" class="text-danger"></span>
+    </div>
+
+
+
+    <div class="mb-3">
+        <label asp-for="@Model.Employeer.Form_Image" class="form-label"></label>
+        <input asp-for="@Model.Employeer.Form_Image" class="form-control">
+        <span asp-validation-for="@Model.Employeer.Form_Image" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <select name="PositionId">
+            @{
+                foreach (var position in Model.EmplooyeePositions)
+                {
+                    <option value="@position.Id">@position.Name</option>
+                }
+            }
+
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <select name="Form_SocialMediaAccountIds">
+            @{
+                foreach(var media in Model.SocialMediaAccounts)
+                {
+                    <option value="@media.Id">@media.PlatformName</option>
+                }
+            }
+    
+        </select>
+
+    </div>
+
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
